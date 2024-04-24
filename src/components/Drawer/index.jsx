@@ -1,59 +1,65 @@
 import styled from "styled-components";
-import IconHome from "../../assets/images/icons/home-inativo.png";
-import IconVisible from "../../assets/images/icons/mais-vistas-inativo.png";
-import IconLike from "../../assets/images/icons/mais-curtidas-inativo.png";
-import IconNews from "../../assets/images/icons/novas-inativo.png";
-import IconSurpriseMe from "../../assets/images/icons/surpreenda-me-inativo.png";
+import IconHomeActive from "../../assets/images/icons/home-ativo.png";
+import IconHomeInactive from "../../assets/images/icons/home-inativo.png";
+import IconVisibleActive from "../../assets/images/icons/mais-vistas-ativo.png";
+import IconVisibleInactive from "../../assets/images/icons/mais-vistas-inativo.png";
+import IconLikeActive from "../../assets/images/icons/mais-curtidas-ativo.png";
+import IconLikeInactive from "../../assets/images/icons/mais-curtidas-inativo.png";
+import IconNewsActive from "../../assets/images/icons/novas-ativo.png";
+import IconNewsInactive from "../../assets/images/icons/novas-inativo.png";
+import IconSurpriseMeActive from "../../assets/images/icons/surpreenda-me-ativo.png";
+import IconSurpriseMeInactive from "../../assets/images/icons/surpreenda-me-inativo.png";
+import { ItemNavigation } from "../ItemNavigation";
 
-const DrawerStyled = styled.nav`
-  color: #d9d9d9;
-  width: 224px;
-`;
+const DrawerStyled = styled.nav``;
 
 const UlStyled = styled.ul`
+  color: #d9d9d9;
+  width: 224px;
+  list-style: none;
   display: flex;
   flex-direction: column;
   padding: 0;
   margin: 0;
 `;
 
-const LiStyled = styled.li`
-  display: flex;
-  flex-direction: row;
-  list-style: none;
-  align-items: center;
-`;
-const ImgStyled = styled.img`
-  width: 24px;
-  height: 24px;
-  margin-right: 10px;
-`;
-
 export const Drawer = () => {
   return (
-    <DrawerStyled>
-      <UlStyled>
-        <LiStyled>
-          <ImgStyled src={IconHome} alt="" />
-          <h4>Início</h4>
-        </LiStyled>
-        <LiStyled>
-          <ImgStyled src={IconVisible} alt="" />
-          <h4>Mais vistas</h4>
-        </LiStyled>
-        <LiStyled>
-          <ImgStyled src={IconLike} alt="" />
-          <h4>Mais curtidas</h4>
-        </LiStyled>
-        <LiStyled>
-          <ImgStyled src={IconNews} alt="" />
-          <h4>Novas</h4>
-        </LiStyled>
-        <LiStyled>
-          <ImgStyled src={IconSurpriseMe} alt="" />
-          <h4>Surpreenda-me</h4>
-        </LiStyled>
-      </UlStyled>
-    </DrawerStyled>
+    <aside>
+      <DrawerStyled>
+        <UlStyled>
+          <ItemNavigation
+            iconActive={IconHomeActive}
+            iconInactive={IconHomeInactive}
+          >
+            Início
+          </ItemNavigation>
+          <ItemNavigation
+            iconActive={IconVisibleActive}
+            iconInactive={IconVisibleInactive}
+          >
+            Mais vistas
+          </ItemNavigation>
+          <ItemNavigation
+            iconActive={IconLikeActive}
+            iconInactive={IconLikeInactive}
+          >
+            Mais curtidas
+          </ItemNavigation>
+          <ItemNavigation
+            iconActive={IconNewsActive}
+            iconInactive={IconNewsInactive}
+          >
+            Novas
+          </ItemNavigation>
+          <ItemNavigation
+            iconActive={IconSurpriseMeActive}
+            iconInactive={IconSurpriseMeInactive}
+          >
+            Surpreenda-me
+          </ItemNavigation>
+        </UlStyled>
+      </DrawerStyled>
+    </aside>
   );
 };

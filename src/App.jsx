@@ -4,6 +4,9 @@ import { Header } from "./components/Header";
 import { Drawer } from "./components/Drawer";
 import { Banner } from "./components/Banner";
 import { Chip } from "./components/Chip";
+import BannerImage from "../src/assets/images/banner.png";
+import { AppContainer } from "./components/AppContainer";
+import { MainContainer } from "./components/Container";
 
 const GradientBackground = styled.div`
   background: linear-gradient(
@@ -14,42 +17,69 @@ const GradientBackground = styled.div`
   );
 
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   padding-left: 24px;
   padding-right: 24px;
   color: #94a3b8;
 `;
 
+const tags = [
+  {
+    id: 0,
+    title: "Todas",
+  },
+  {
+    id: 1,
+    title: "Estrelas",
+  },
+  {
+    id: 2,
+    title: "Galáxias",
+  },
+  {
+    id: 3,
+    title: "Luas",
+  },
+  {
+    id: 4,
+    title: "Planetas",
+  },
+];
+
 function App() {
   return (
     <GradientBackground>
       <GlobalStyles />
-      <Header />
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 5fr" }}>
-        <Drawer />
-        <div>
-          <Banner />
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "100px 100px 100px 100px 100px 100px ",
-              gridGap: "10px",
-              alignItems: "center",
-              paddingTop: "20px",
-              paddingBottom: "20px",
-            }}
-          >
-            <p>Busque por tagas:</p>
-            <Chip>Estrelas</Chip>
-            <Chip>Galáxias</Chip>
-            <Chip>Lua</Chip>
-            <Chip>Planetas</Chip>
-            <Chip>Todas</Chip>
-          </div>
-          <div></div>
-          <div>conteudo</div>
+      <AppContainer>
+        <Header />
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 5fr" }}>
+          <Drawer />
+          <MainContainer>
+            <Banner
+              backgroundImage={BannerImage}
+              text=" A galeria mais completa de fotos do espaço!"
+            />
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "150px 1fr 1fr 1fr 1fr 1fr ",
+                alignItems: "center",
+                paddingTop: "20px",
+                paddingBottom: "20px",
+                marginLeft: "40px",
+                marginRight: "150px",
+              }}
+            >
+              <p style={{ marginRight: "10px" }}>Busque por tagas:</p>
+              {tags.map(tag => (
+                <Chip key={tag.id} title={tag.title} />
+              ))}
+            </div>
+            <div></div>
+            <div>conteudo</div>
+          </MainContainer>
         </div>
-      </div>
+      </AppContainer>
     </GradientBackground>
   );
 }
