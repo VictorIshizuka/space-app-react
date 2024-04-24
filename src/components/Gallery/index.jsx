@@ -15,8 +15,9 @@ const DivStyled = styled.div`
   justify-content: center;
 `;
 
-export const Gallery = ({ photos = [] }) => {
+export const Gallery = ({ photos = [], popular = [] }) => {
   console.log(photos);
+  console.log(popular);
   return (
     <GalleryStyled>
       <DivStyled>
@@ -32,7 +33,7 @@ export const Gallery = ({ photos = [] }) => {
           ))}
         </GalleryContainer>
       </DivStyled>
-      <Popular />
+      {/* <Popular populares={popular} /> */}
     </GalleryStyled>
   );
 };

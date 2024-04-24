@@ -24,31 +24,29 @@ const Figure = styled.figure`
     h3 {
       font-family: "GandhiSansBold";
       color: white;
+      font-size: 16px;
     }
     h4 {
-      color:
       flex-grow: 1;
-      font-size: 16px;
+      font-size: 12px;
       font-weight: 700;
       line-height: 19.2px;
       text-align: left;
     }
     h3,
-    h4, button {
+    h4,
+    button {
       margin: 0;
-      font-size: 16px;
-      
     }
-    footer{
+    footer {
       display: flex;
       align-items: end;
       gap: 10px;
     }
-    button{
+    button {
       background-color: transparent;
       border: none;
       color: white;
-
     }
   }
 `;

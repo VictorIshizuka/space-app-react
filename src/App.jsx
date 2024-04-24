@@ -9,8 +9,10 @@ import { AppContainer } from "./components/AppContainer";
 import { MainContainer } from "./components/Container";
 import { Gallery } from "./components/Gallery";
 import Photos from "../src/mock/photos.json";
+import Popular from "../src/mock/popular.json";
 
 console.log(Photos);
+console.log(Popular);
 
 const GradientBackground = styled.div`
   background: linear-gradient(
@@ -80,7 +82,7 @@ function App() {
               ))}
             </div>
 
-            <Gallery photos={Photos} />
+            <Gallery photos={Photos} popular={Popular} />
           </MainContainer>
         </div>
       </AppContainer>
