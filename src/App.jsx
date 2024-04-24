@@ -7,6 +7,10 @@ import { Chip } from "./components/Chip";
 import BannerImage from "../src/assets/images/banner.png";
 import { AppContainer } from "./components/AppContainer";
 import { MainContainer } from "./components/Container";
+import { Gallery } from "./components/Gallery";
+import Photos from "../src/mock/photos.json";
+
+console.log(Photos);
 
 const GradientBackground = styled.div`
   background: linear-gradient(
@@ -64,10 +68,10 @@ function App() {
                 display: "grid",
                 gridTemplateColumns: "150px 1fr 1fr 1fr 1fr 1fr ",
                 alignItems: "center",
-                paddingTop: "20px",
-                paddingBottom: "20px",
+                paddingTop: "10px",
+                paddingBottom: "10px",
                 marginLeft: "40px",
-                marginRight: "150px",
+                marginRight: "400px",
               }}
             >
               <p style={{ marginRight: "10px" }}>Busque por tagas:</p>
@@ -75,8 +79,8 @@ function App() {
                 <Chip key={tag.id} title={tag.title} />
               ))}
             </div>
-            <div></div>
-            <div>conteudo</div>
+
+            <Gallery photos={Photos} />
           </MainContainer>
         </div>
       </AppContainer>

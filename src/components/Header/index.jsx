@@ -7,6 +7,7 @@ const HeaderStyled = styled.header`
   grid-template-columns: 1fr 1fr;
   padding: 20px 0;
   align-items: center;
+
   img {
     max-width: 212px;
   }

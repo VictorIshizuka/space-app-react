@@ -9,9 +9,7 @@ const InputStyled = styled.input`
   font-size: 20px;
   line-height: 20px;
   box-sizing: border-box;
-  padding-left: 16px;
   color: #d9d9d9;
-  margin-right: 64px;
   height: 58px;
   width: 600px;
   &::placeholder {
@@ -25,9 +23,5 @@ const InputStyled = styled.input`
 `;
 
 export const TextField = () => {
-  return (
-    <div style={{ display: "flex", marginRight: "-25px" }}>
-      <InputStyled type="search" placeholder="O que você procura?" />
-    </div>
-  );
+  return <InputStyled type="search" placeholder="O que você procura?" />;
 };
