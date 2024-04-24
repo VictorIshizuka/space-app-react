@@ -2,7 +2,8 @@
 
 ## Estudo e libs
 React-router-dom para gerenciar rotas e renderizações\
-Styed-components para criar componentes padores para a utilização em outras páginas\
+Styled-components para criar componentes padores para a utilização em outras páginas\
+fonte: Gandhi Sans
 
 
 O projeto poderá ser dado continuidade em caso de necessidades ou aprendizagem
