@@ -2,7 +2,7 @@
 
 ## Estudo e libs
  
-Styled-components para criar componentes padrões para a utilização em outras páginas\
+Styled-components para criar componentes padrões para a utilização em outras páginas
 fonte: Gandhi Sans
 
 
