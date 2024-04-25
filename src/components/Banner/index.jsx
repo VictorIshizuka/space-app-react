@@ -2,16 +2,15 @@ import styled from "styled-components";
 
 const BannerStyled = styled.figure`
   background-image: ${props => `url(${props.$backgroundImage})`};
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-radius: 10px;
-  min-height: 328px;
-  max-width: 100%;
-  display: flex;
-  align-items: center;
-  display: flex;
-  align-items: center;
   flex-grow: 1;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  min-height: 328px;
+  margin: 0;
+  border-radius: 20px;
+  max-width: 100%;
+  background-size: cover;
 `;
 
 const TitleStyled = styled.h1`

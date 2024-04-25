@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import favorite from "../../assets/images/icons/favorito.png";
+import expandedIcon from "../../assets/images/icons/expandir.png";
 
 const Figure = styled.figure`
-  width: ${props => (props.$expanded ? "90%" : "460px")};
+  width: ${props => (props.$expandida ? "90%" : "460px")};
   max-width: 100%;
   margin: 0;
-  padding: 10px;
   display: flex;
   flex-direction: column;
   & > img {
@@ -12,36 +13,27 @@ const Figure = styled.figure`
     border-radius: 20px 20px 0 0;
   }
   figcaption {
-    display: flex;
-    align-items: end;
-    justify-content: space-between;
     background-color: #001634;
     border-radius: 0px 0px 20px 20px;
-
+    color: white;
     box-sizing: border-box;
     padding: 12px;
-    height: 70px;
     h3 {
       font-family: "GandhiSansBold";
-      color: white;
-      font-size: 16px;
     }
     h4 {
       flex-grow: 1;
-      font-size: 12px;
-      font-weight: 700;
-      line-height: 19.2px;
-      text-align: left;
     }
     h3,
     h4,
     button {
       margin: 0;
+      font-size: 16px;
     }
     footer {
       display: flex;
-      align-items: end;
-      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
     }
     button {
       background-color: transparent;
@@ -51,18 +43,23 @@ const Figure = styled.figure`
   }
 `;
 
-export const PhotoCard = ({ figure, title, subtitle, expanded }) => {
+export const PhotoCard = ({ figure, expanded = false, onZoom }) => {
   return (
-    <Figure $expanded={expanded}>
-      <img src={figure} alt="" />
+    <Figure $expanded={expanded} id={`foto-${figure.id}`}>
+      <img src={figure.figure} alt="" />
       <figcaption>
-        <div>
-          <h3>{title}</h3>
-          <h4>{subtitle}</h4>
-        </div>
+        <h3>{figure.title}</h3>
+
         <footer>
-          <button>favorito</button>
-          <button>zoo</button>
+          <h4>{figure.subtitle}</h4>
+          <button>
+            <img src={favorite} alt="Icone de favorito" />
+          </button>
+          {!expanded && (
+            <button aria-hidden={expanded} onClick={() => onZoom(figure)}>
+              <img src={expandedIcon} alt="Icone de expandir" />
+            </button>
+          )}
         </footer>
       </figcaption>
     </Figure>

@@ -1,6 +1,17 @@
 import styled from "styled-components";
 import { Title } from "../Title";
 
+const FigureColumn = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+`;
+
+const Image = styled.img`
+  max-width: 212px;
+  border-radius: 20px;
+`;
+
 const Button = styled.button`
   background-color: transparent;
   color: #fff;
@@ -14,17 +25,27 @@ const Button = styled.button`
   margin-top: 16px;
 `;
 
-export const Popular = ({ populares = [] }) => {
-  console.log(populares);
+const popular = [
+  { id: 1, figure: "../../assets/images/popular/foto-1.png" },
+  { id: 2, figure: "../../assets/images/popular/foto-2.png" },
+  { id: 3, figure: "../../assets/images/popular/foto-3.png" },
+  { id: 4, figure: "../../assets/images/popular/foto-4.png" },
+  { id: 5, figure: "../../assets/images/popular/foto-5.png" },
+];
+
+export const Popular = ({ popular = [] }) => {
   return (
     <section>
-      <Title alignment={"center"}>Popular</Title>
-      <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-        {populares.map(popular => {
-          <img src={popular.figure} key={popular.id} alt="" />;
+      <Title alignment="center">Popular</Title>
+      <FigureColumn>
+        {popular.map(item => {
+          {
+            console.log(item);
+          }
+          <Image src={item.figure} key={item.id} alt="" />;
         })}
         <div>test</div>
-      </div>
+      </FigureColumn>
       <Button>Ver mais</Button>
     </section>
   );

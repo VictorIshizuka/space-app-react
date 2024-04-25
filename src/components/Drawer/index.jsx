@@ -9,18 +9,15 @@ import IconNewsActive from "../../assets/images/icons/novas-ativo.png";
 import IconNewsInactive from "../../assets/images/icons/novas-inativo.png";
 import IconSurpriseMeActive from "../../assets/images/icons/surpreenda-me-ativo.png";
 import IconSurpriseMeInactive from "../../assets/images/icons/surpreenda-me-inativo.png";
-import { ItemNavigation } from "../ItemNavigation";
+import { ItemNavigation } from "./ItemNavigation";
 
 const DrawerStyled = styled.nav``;
 
 const UlStyled = styled.ul`
-  color: #d9d9d9;
-  width: 224px;
   list-style: none;
-  display: flex;
-  flex-direction: column;
   padding: 0;
   margin: 0;
+  width: 236px;
 `;
 
 export const Drawer = () => {
@@ -31,6 +28,7 @@ export const Drawer = () => {
           <ItemNavigation
             iconActive={IconHomeActive}
             iconInactive={IconHomeInactive}
+            active={true}
           >
             Início
           </ItemNavigation>

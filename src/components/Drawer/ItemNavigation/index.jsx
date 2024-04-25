@@ -2,10 +2,16 @@ import styled from "styled-components";
 
 const LiStyled = styled.li`
   display: flex;
-  flex-direction: row;
   align-items: center;
+  gap: 22px;
+  color: ${props => (props.$active ? "#7B78E5" : "#D9D9D9")};
+  font-family: ${props =>
+    props.$active ? "GandhiSansBold" : "GandhiSansRegular"};
   padding-top: 10px;
-  padding-bottom: 10px;
+  font-size: 24px;
+  line-height: 29px;
+  margin-bottom: 30px;
+  cursor: pointer;
   img {
     padding-right: 10px;
   }
@@ -19,7 +25,7 @@ export const ItemNavigation = ({
 }) => {
   return (
     <>
-      <LiStyled>
+      <LiStyled $active={active}>
         <img src={active ? iconActive : iconInactive} />
         {children}
       </LiStyled>

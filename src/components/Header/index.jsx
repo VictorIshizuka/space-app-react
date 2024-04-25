@@ -3,11 +3,9 @@ import Logo from "../../assets/images/logo.png";
 import { TextField } from "../TextField";
 
 const HeaderStyled = styled.header`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: 20px 0;
-  align-items: center;
-
+  padding: 60px 0;
+  display: flex;
+  justify-content: space-between;
   img {
     max-width: 212px;
   }

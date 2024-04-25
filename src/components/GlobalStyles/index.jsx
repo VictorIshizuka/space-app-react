@@ -20,9 +20,7 @@ html {
 }
 body {
   margin: 0;
-  padding: 0;
-  min-height: 100%;
-  width: 100%;
+  min-height: 100vh;
 }
 main {
   display: block;
