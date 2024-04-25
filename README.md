@@ -2,11 +2,11 @@
 
 ## Estudo e libs
  
-Styled-components para criar componentes padrões para a utilização em outras páginas
+Styled-components para criar componentes padrões para a utilização em outras páginas\
 fonte: Gandhi Sans
 
 
-### O projeto poderá ser dado continuidade em caso de necessidades ou aprendizagem:\
+### O projeto poderá ser dado continuidade em caso de necessidades ou aprendizagem:
 Atualmente devido o uso de Prop Drilling o projeto tem uns bugs para  abrir a modal e renderizar a lista de fotos populares\
 o objetivo era estudar estilização, mas a necessidade de gerenciamento de estados se torna evidente
 
