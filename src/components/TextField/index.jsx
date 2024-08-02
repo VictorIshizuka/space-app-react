@@ -1,27 +1,40 @@
 import styled from "styled-components";
+
 import IconSerach from "../../assets/images/Vector.svg";
 
+const ContainerStyled = styled.div`
+  position: relative;
+  display: inline-block;
+`;
+
 const InputStyled = styled.input`
-  background-color: transparent;
-  border: solid 2px #7b78e5;
+  height: 56px;
+  padding: 12px 16px;
   border-radius: 10px;
+  border: 2px solid;
+  border-color: #c98cf1;
+  background: transparent;
+  box-sizing: border-box;
+  width: 566px;
+  color: #d9d9d9;
   font-weight: 400;
   font-size: 20px;
   line-height: 20px;
-  box-sizing: border-box;
-  color: #d9d9d9;
-  height: 58px;
-  width: 600px;
-  &::placeholder {
-    color: #d9d9d9;
-    padding-left: 16px;
-  }
-  background-image: url(${IconSerach});
-  background-position: 14.8cm 15px;
-  background-repeat: no-repeat;
-  align-items: center;
 `;
 
-export const TextField = () => {
-  return <InputStyled type="search" placeholder="O que você procura?" />;
+const IconLupa = styled.img`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 38px;
+  height: 38px;
+`;
+
+export const TextField = ({ props }) => {
+  return (
+    <ContainerStyled>
+      <InputStyled {...props} />
+      <IconLupa src={IconSerach} alt="icone de lupa" />
+    </ContainerStyled>
+  );
 };

@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
-import { PhotoCard } from "../PhotoCard";
-import Close from "./../../assets/images/icons/fechar.png";
+
+import { Image } from "../Gallery/Image";
+import Close from "../../assets/images/icons/fechar.png";
 
 const Overlay = styled.div`
   background-color: rgba(0, 0, 0, 0.7);
@@ -22,13 +23,9 @@ const DialogStyled = styled.dialog`
   justify-content: center;
   form {
     button {
-      margin-left: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
+      position: relative;
+      top: 20px;
+      right: 60px;
     }
   }
 `;
@@ -40,7 +37,7 @@ export const Modal = ({ onClose, figure }) => {
         <>
           <Overlay />
           <DialogStyled open={!!figure} onClose={onClose}>
-            <PhotoCard figure={figure} expanded={true} />
+            <Image figure={figure} expanded={true} />
             <form method="dialog">
               <button formMethod="dialog">
                 <img src={Close} alt="Icone de fechar" />

@@ -1,10 +1,10 @@
 import styled from "styled-components";
+import { Popular } from "./Popular";
+import { Image } from "./Image";
+import { Chips } from "./Chip";
 import { Title } from "../Title";
-import { PhotoCard } from "../PhotoCard";
-import { Popular } from "../Popular";
-import { Chip } from "./../Chip";
 
-const GalleryStyled = styled.div`
+const GalleryContainer = styled.div`
   display: flex;
   gap: 24px;
 `;
@@ -19,63 +19,21 @@ const FiguresContainer = styled.section`
   gap: 24px;
 `;
 
-const tags = [
-  {
-    id: 0,
-    title: "Todas",
-  },
-  {
-    id: 1,
-    title: "Estrelas",
-  },
-  {
-    id: 2,
-    title: "Galáxias",
-  },
-  {
-    id: 3,
-    title: "Luas",
-  },
-  {
-    id: 4,
-    title: "Planetas",
-  },
-];
-
-export const Gallery = ({ photos = [], popular = [], onFigureSelected }) => {
+export const Gallery = ({ photos = [], onFigureSelected }) => {
   return (
     <>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "150px 1fr 1fr 1fr 1fr 1fr ",
-          alignItems: "center",
-          paddingTop: "10px",
-          paddingBottom: "10px",
-          marginLeft: "40px",
-          marginRight: "400px",
-        }}
-      >
-        <p style={{ marginRight: "10px" }}>Busque por tagas:</p>
-        {tags.map(tag => (
-          <Chip key={tag.id} title={tag.title} />
-        ))}
-      </div>
-      <GalleryStyled>
+      <Chips />
+      <GalleryContainer>
         <SectionStyled>
           <Title>Navegue pela galeria</Title>
           <FiguresContainer>
             {photos.map(photo => (
-              <PhotoCard
-                key={photo.id}
-                onZoom={onFigureSelected}
-                figure={photo}
-              />
+              <Image onZoom={onFigureSelected} key={photo.id} figure={photo} />
             ))}
           </FiguresContainer>
         </SectionStyled>
-        <Popular popular={popular} />
-      </GalleryStyled>
+        <Popular />
+      </GalleryContainer>
     </>
   );
 };
