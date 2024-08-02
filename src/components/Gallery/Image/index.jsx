@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import favorite from "../../../assets/images/icons/favorito.png";
+import favoriteActive from "../../../assets/images/icons/favorito-ativo.png";
 import expandedIcon from "../../../assets/images/icons/expandir.png";
 
 import { ButtonIcon } from "../../ButtonIcon";
@@ -41,7 +42,14 @@ const Footer = styled.footer`
   align-items: center;
 `;
 
-export const Image = ({ figure, expanded = false, onZoom }) => {
+export const Image = ({
+  figure,
+  expanded = false,
+  onZoom,
+  onChangeFavorite,
+}) => {
+  const iconFavorite = figure.favorite ? favoriteActive : favorite;
+
   return (
     <Figure $expanded={expanded} id={`image-${figure.id}`}>
       <img
@@ -52,8 +60,8 @@ export const Image = ({ figure, expanded = false, onZoom }) => {
         <h3>{figure.title}</h3>
         <Footer>
           <h4>{figure.font}</h4>
-          <ButtonIcon>
-            <img src={favorite} alt="Icone de favorito" />
+          <ButtonIcon onClick={() => onChangeFavorite(figure)}>
+            <img src={iconFavorite} alt="Icone de favorito" />
           </ButtonIcon>
           {!expanded && (
             <ButtonIcon aria-hidden={expanded} onClick={() => onZoom(figure)}>

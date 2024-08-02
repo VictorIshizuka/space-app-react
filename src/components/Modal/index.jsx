@@ -30,14 +30,18 @@ const DialogStyled = styled.dialog`
   }
 `;
 
-export const Modal = ({ onClose, figure }) => {
+export const Modal = ({ onClose, figure, onChangeFavorite }) => {
   return (
     <>
       {figure && (
         <>
           <Overlay />
           <DialogStyled open={!!figure} onClose={onClose}>
-            <Image figure={figure} expanded={true} />
+            <Image
+              figure={figure}
+              expanded={true}
+              onChangeFavorite={onChangeFavorite}
+            />
             <form method="dialog">
               <button formMethod="dialog">
                 <img src={Close} alt="Icone de fechar" />

@@ -30,10 +30,15 @@ const IconLupa = styled.img`
   height: 38px;
 `;
 
-export const TextField = ({ props }) => {
+export const TextField = ({ value, onChange }) => {
   return (
     <ContainerStyled>
-      <InputStyled {...props} />
+      <InputStyled
+        type="search"
+        placeholder="O que você procura?"
+        value={value}
+        onChange={onChange}
+      />
       <IconLupa src={IconSerach} alt="icone de lupa" />
     </ContainerStyled>
   );

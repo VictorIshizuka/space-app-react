@@ -19,16 +19,27 @@ const FiguresContainer = styled.section`
   gap: 24px;
 `;
 
-export const Gallery = ({ photos = [], onFigureSelected }) => {
+export const Gallery = ({
+  photos = [],
+  onFigureSelected,
+  onClick,
+  chips,
+  onChangeFavorite,
+}) => {
   return (
     <>
-      <Chips />
+      <Chips onClick={onClick} chips={chips} />
       <GalleryContainer>
         <SectionStyled>
           <Title>Navegue pela galeria</Title>
           <FiguresContainer>
             {photos.map(photo => (
-              <Image onZoom={onFigureSelected} key={photo.id} figure={photo} />
+              <Image
+                onZoom={onFigureSelected}
+                key={photo.id}
+                figure={photo}
+                onChangeFavorite={onChangeFavorite}
+              />
             ))}
           </FiguresContainer>
         </SectionStyled>
