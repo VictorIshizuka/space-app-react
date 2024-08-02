@@ -7,14 +7,10 @@ const LiStyled = styled.li`
   color: ${props => (props.$active ? "#7B78E5" : "#D9D9D9")};
   font-family: ${props =>
     props.$active ? "GandhiSansBold" : "GandhiSansRegular"};
-  padding-top: 10px;
   font-size: 24px;
   line-height: 29px;
   margin-bottom: 30px;
   cursor: pointer;
-  img {
-    padding-right: 10px;
-  }
 `;
 
 export const ItemNavigation = ({
@@ -24,11 +20,9 @@ export const ItemNavigation = ({
   active = false,
 }) => {
   return (
-    <>
-      <LiStyled $active={active}>
-        <img src={active ? iconActive : iconInactive} />
-        {children}
-      </LiStyled>
-    </>
+    <LiStyled $active={active}>
+      <img src={active ? iconActive : iconInactive} alt="" />
+      {children}
+    </LiStyled>
   );
 };

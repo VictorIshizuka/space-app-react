@@ -1,17 +1,17 @@
+import { useState } from "react";
+
 import styled from "styled-components";
+
+import Photos from "./mock/photos.json";
+
+import BannerImage from "./assets/images/banner.png";
+
 import { GlobalStyles } from "./components/GlobalStyles";
 import { Header } from "./components/Header";
 import { Drawer } from "./components/Drawer";
 import { Banner } from "./components/Banner";
-import BannerImage from "../src/assets/images/banner.png";
 import { Gallery } from "./components/Gallery";
-import Photos from "../src/mock/photos.json";
-import Popular from "../src/mock/popular.json";
 import { Modal } from "./components/Modal";
-import { useState } from "react";
-
-console.log(Photos);
-console.log(Popular);
 
 const GradientBackground = styled.div`
   background: linear-gradient(
@@ -46,7 +46,6 @@ const ContentGallery = styled.section`
 function App() {
   const [isFigureGallery, setIsFigureGallery] = useState(Photos);
   const [isFigureSelected, setIsSelected] = useState(null);
-  console.log(isFigureSelected);
 
   return (
     <GradientBackground>
@@ -60,11 +59,9 @@ function App() {
               backgroundImage={BannerImage}
               text=" A galeria mais completa de fotos do espaço!"
             />
-
             <Gallery
               photos={isFigureGallery}
-              popular={Popular}
-              onFigureSelected={figure => setIsFigureGallery(figure)}
+              onFigureSelected={figure => setIsSelected(figure)}
             />
           </ContentGallery>
         </MainContainerStyled>

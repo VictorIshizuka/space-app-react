@@ -30,15 +30,15 @@ const Figure = styled.figure`
       margin: 0;
       font-size: 16px;
     }
-    footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
     button {
       background-color: transparent;
       border: none;
       color: white;
+    }
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
   }
 `;
