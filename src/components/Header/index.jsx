@@ -11,11 +11,11 @@ const HeaderStyled = styled.header`
   }
 `;
 
-export const Header = () => {
+export const Header = ({ onChange, value }) => {
   return (
     <HeaderStyled>
       <img src={Logo} alt="" />
-      <TextField />
+      <TextField onChange={onChange} value={value} />
     </HeaderStyled>
   );
 };

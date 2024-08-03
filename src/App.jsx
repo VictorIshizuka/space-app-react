@@ -3,6 +3,7 @@ import { useState } from "react";
 import styled from "styled-components";
 
 import Photos from "./mock/photos.json";
+import Tags from "./mock/tags.json";
 
 import BannerImage from "./assets/images/banner.png";
 
@@ -45,13 +46,43 @@ const ContentGallery = styled.section`
 
 function App() {
   const [isFigureGallery, setIsFigureGallery] = useState(Photos);
+  const [search, setSearch] = useState("");
   const [isFigureSelected, setIsSelected] = useState(null);
+
+  const filterFigures = isFigureGallery.filter(item =>
+    item.title.toLowerCase().includes(search.toLowerCase())
+  );
+
+  function onFiltertag(tagId) {
+    return setIsFigureGallery(
+      Photos.filter(item =>
+        item.tagId === tagId && tagId !== 0 ? item.tagId === tagId : tagId === 0
+      )
+    );
+  }
+
+  function onChangeFavorite(figure) {
+    if (figure.id === isFigureSelected?.id)
+      setIsSelected({
+        ...isFigureSelected,
+        favorite: !isFigureSelected.favorite,
+      });
+
+    setIsFigureGallery(
+      isFigureGallery.map(item => {
+        return {
+          ...item,
+          favorite: item.id === figure.id ? !figure.favorite : item.favorite,
+        };
+      })
+    );
+  }
 
   return (
     <GradientBackground>
       <GlobalStyles />
       <AppContainerStyled>
-        <Header />
+        <Header value={search} onChange={e => setSearch(e.target.value)} />
         <MainContainerStyled>
           <Drawer />
           <ContentGallery>
@@ -60,13 +91,20 @@ function App() {
               text=" A galeria mais completa de fotos do espaço!"
             />
             <Gallery
-              photos={isFigureGallery}
+              chips={Tags}
+              onClick={onFiltertag}
+              photos={filterFigures}
+              onChangeFavorite={onChangeFavorite}
               onFigureSelected={figure => setIsSelected(figure)}
             />
           </ContentGallery>
         </MainContainerStyled>
       </AppContainerStyled>
-      <Modal figure={isFigureSelected} onClose={() => setIsSelected(null)} />
+      <Modal
+        figure={isFigureSelected}
+        onClose={() => setIsSelected(null)}
+        onChangeFavorite={onChangeFavorite}
+      />
     </GradientBackground>
   );
 }

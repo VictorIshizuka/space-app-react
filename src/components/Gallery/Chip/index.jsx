@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import chips from "../../../mock/tags.json";
 
 const ChipContainer = styled.section`
   display: flex;
@@ -35,13 +34,21 @@ const Div = styled.div`
   justify-content: end;
 `;
 
-export const Chips = () => {
+export const Chips = ({ onClick, chips }) => {
+  console.log(chips);
   return (
     <ChipContainer>
       <TitleStyled>Busque por tags:</TitleStyled>
       <Div>
         {chips.map(tag => (
-          <ChipStyled key={tag.id}>{tag.title}</ChipStyled>
+          <ChipStyled
+            key={tag.id}
+            onClick={() => {
+              onClick(tag.id);
+            }}
+          >
+            {tag.title}
+          </ChipStyled>
         ))}
       </Div>
     </ChipContainer>
